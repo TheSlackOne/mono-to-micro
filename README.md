@@ -21,7 +21,7 @@ The diagram below describes the high level architecture.
 ![alt text](resrc/high-level.png)
 
 Module description:
-- Frontend: Web Service facing the client. Candidate tech stack: Node.js, React.
+- Frontend: Web Service facing the client. Candidate tech stack: Node.js, Typescript, React.
 - Old Frontend:Old Web Service facing the client.
 - Form Adapter: A rquest translator from from format to API. Candidate tech stack: Node.js or Python.
 - API: An SLA for the current API. Candidate tech stack: Node.js or Python.
@@ -33,6 +33,7 @@ Module description:
 - User Tracker: This module is in charge of keep and track user information, like location, usage, etc. Candidate tech stack: Python, Node.js.
 - Event Queue: A queue to hold the processes events waiting to be consumed by HubSpot. Candidate tech stack: SQS or other cloud provided.
 - Pub/Sub: Pub/sub system to for updating information. Candidate tech stack: Kafka, Amazon MQ, or other cloud based service.
+- Backoffice: This module allows fine-tunning for the Event Processor. May olso be extendible to others. Candidate tech stack: Node.js, Typescript, React.
 
 
 # Further considerations

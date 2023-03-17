@@ -13,3 +13,27 @@ To move to a micro-services (or services) based architecture, any new feature or
 
 ![alt text](resrc/coliving.png)
 
+To start the split, we should start by migrating a few special services that will run in parallel and will start to receiving moderated traffic by the time we understand they are in good shape. These candidates might be: Jobs, Talents and Companies. Since they can be encapsulated and can mantain an unique source of truth each. They we can add a flag to our monolith to route to comsume these services.
+
+## High level architecture
+The diagram below describes the high level architecture.
+
+![alt text](resrc/high-level.png)
+
+Module description:
+- Frontend: Web Service facing the client. Candidate tech stack: Node.js, React.
+- Old Frontend:Old Web Service facing the client.
+- Form Adapter: A rquest translator from from format to API. Candidate tech stack: Node.js or Python.
+- API: An SLA for the current API. Candidate tech stack: Node.js or Python.
+- Jobs: Service that gatekeeps the jobs. Candidate tech stack: Node.js or Python.
+- Talents: Service that gatekeeps the talents. Candidate tech stack: Node.js or Python.
+- Companies: Service that gatekeeps the companies. Candidate tech stack: Node.js or Python.
+- Events: Service that gatekeeps the events. Candidate tech stack: Node.js or Python.
+- Event Processor: This module is in charge of detecting and processing events, like job closure, match suggestion. Also a candidate for ML exploring. Candidate tech stack: C++, Rust, Go, Python.
+- User Tracker: This module is in charge of keep and track user information, like location, usage, etc. Candidate tech stack: Python, Node.js.
+- Event Queue: A queue to hold the processes events waiting to be consumed by HubSpot. Candidate tech stack: SQS or other cloud provided.
+- Pub/Sub: Pub/sub system to for updating information. Candidate tech stack: Kafka, Amazon MQ, or other cloud based service.
+
+
+# Further considerations
+- Monitoring

@@ -35,6 +35,10 @@ Module description:
 - Pub/Sub: Pub/sub system to for updating information. Candidate tech stack: Kafka, Amazon MQ, or other cloud based service.
 - Backoffice: This module allows fine-tunning for the Event Processor. May olso be extendible to others. Candidate tech stack: Node.js, Typescript, React.
 
-
 # Further considerations
-- Monitoring
+- Deploying: Containerizing application is the key. This will allow the team to automate pipeline with relative ease. Also its orchestration. See Docker, Kubernetes, EKS.
+- Deploying infra: IaC is the key. There a few well-known cloud formation tools that allow to automate the creation of the infrastructure. See Terraform.
+- Monitoring: Now this topic takes more relevance and requires more resources. Having a dashboard, like Graphana, with the most importante metrics would be ideal.
+- Testing: Now each module should be tested to undestand baselines. Probably mocking external components.
+- E2e test: I would be ideal measure performance, or other key values for the architecture by running e2e tests. I could be from an in-house tool or a third-party.
+- Stress tests: To meet the performance requirements, we run stress tests periodically. There are a few well-known tools to measure HTTP performance.
